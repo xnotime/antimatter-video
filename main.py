@@ -104,9 +104,9 @@ class Top(Scene):
         ))
         self.wait(1)
         proton = lambda: \
-            Dot(radius= 0.7, color= ManimColor('#FF0000'))
+            Dot(radius= 0.77, color= ManimColor('#FF0000'))
         neutron = lambda: \
-            Dot(radius= 0.7, color= ManimColor('#0000FF'))
+            Dot(radius= 0.77, color= ManimColor('#0000FF'))
         sc = 3.5
         nuc_10b = VGroup(
             proton().shift(sc*((+0.1 * UP) + (-0.2 * LEFT))),
@@ -119,7 +119,7 @@ class Top(Scene):
             proton().shift(sc*((+0.2 * UP) + (+0.1 * LEFT))),
             proton().shift(sc*((+0.1 * UP) + (-0.3 * LEFT))),
             neutron().shift(sc*((-0.1 * UP) + (+0.2 * LEFT))),
-        ).shift(3 * LEFT)
+        ).shift((3 * LEFT) + (0.5 * DOWN))
         nuc_11b = VGroup(
             proton().shift(sc*((+0.1 * UP) + (-0.3 * LEFT))),
             neutron().shift(sc*((-0.1 * UP) + (+0.2 * LEFT))),
@@ -132,7 +132,13 @@ class Top(Scene):
             proton().shift(sc*((+0.1 * UP) + (-0.2 * LEFT))),
             neutron().shift(sc*((-0.2 * UP) + (-0.1 * LEFT))),
             proton().shift(sc*((-0.1 * UP) + (-0.1 * LEFT))),
-        ).shift(3 * RIGHT)
+        ).shift((3 * RIGHT) + (0.5 * DOWN))
+        label_10b = MathTex('{}^{10} \\text{B}', font_size= 100).shift((3.25 * LEFT) + (2 * UP))
+        label_11b = MathTex('{}^{11} \\text{B}', font_size= 100).shift((3.25 * RIGHT) + (2 * UP))
+        sub_10b = MathTex('\\approx 19\\%', font_size= 32).shift((3 * LEFT) + (2.5 * DOWN))
+        sub_11b = MathTex('\\approx 81\\%', font_size= 32).shift((3 * RIGHT) + (2.5 * DOWN))
         self.play(VGroup(*mol3, left0, right0).animate.scale(5.0, about_point= ORIGIN).set_opacity(0), run_time=0.75)
         self.play(Create(nuc_10b), Create(nuc_11b), run_time=0.25)
+        self.wait(1)
+        self.play(Write(label_10b), Write(label_11b), Write(sub_10b), Write(sub_11b))
         self.wait(1)
