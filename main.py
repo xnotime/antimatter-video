@@ -173,7 +173,7 @@ class Top(Scene):
                 nuc_10b[-1].animate.shift((11 * LEFT) + (5 * UP)),
             ],
             lag_ratio= 0.28,
-        ))
+        ), run_time= 2.0)
         self.wait(1)
         rad = ImageMobject('assets/radsymb.png').scale(0.9).shift((3 * LEFT) + (1.5 * UP))
         self.play(FadeIn(rad))
@@ -185,10 +185,15 @@ class Top(Scene):
             [
                 alpha[-1].animate.set_color(ManimColor('#FF0000')),
                 Transform(label_10b, label_13c),
-                ptron.animate.shift(((8 * LEFT) + (3 * DOWN)) - ((3 * RIGHT) + (0.5 * DOWN))),
+                ptron.animate.shift(((10 * LEFT) + (3 * DOWN)) - ((3 * RIGHT) + (0.5 * DOWN))),
                 FadeOut(rad),
             ],
             lag_ratio= 0.28,
-        )
+        ), run_time= 2.0)
+        self.wait(1)
+        self.play(
+            except_subs.animate.shift(-((10 * LEFT) + (3 * DOWN))),
+            alpha.animate.shift(-((10 * LEFT) + (3 * DOWN))),
+            ptron.animate.shift(-((10 * LEFT) + (3 * DOWN))),
         )
         self.wait(1)
