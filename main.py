@@ -37,9 +37,22 @@ class Top(Scene):
                 AnimationGroup(FadeOut(mol0[i]), FadeIn(mol1[i]))
                 for i in range(4)
             ),
+            lag_ratio= 0.15,
+        ))
+        self.wait(1)
+        self.play(LaggedStart(
+            [
+                LaggedStart(
+                    [
+                        mol1[0].animate.shift(-(UP + (5 * LEFT))).set_opacity(0),
+                        mol1[1].animate.shift(-((1.333 * DOWN) + (1.333 * LEFT))).set_opacity(0),
+                        mol1[2].animate.shift(-((1.333 * UP) + (1.333 * RIGHT))).set_opacity(0),
+                        mol1[3].animate.shift(-(DOWN + (5 * RIGHT))).set_opacity(0),
+                    ],
+                    lag_ratio= 0.05
+                ),
+                FadeIn(mol2[0]),
+            ],
             lag_ratio= 0.1,
         ))
         self.wait(1)
-        self.play(
-            mol1[0].animate.shift(-(UP + (5 * LEFT))).set_opacity(0),
-        )
