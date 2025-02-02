@@ -119,7 +119,7 @@ class Top(Scene):
             proton().shift(sc*((+0.2 * UP) + (+0.1 * LEFT))),
             proton().shift(sc*((+0.1 * UP) + (-0.3 * LEFT))),
             neutron().shift(sc*((-0.1 * UP) + (+0.2 * LEFT))),
-        )
+        ).shift(3 * LEFT)
         nuc_11b = VGroup(
             proton().shift(sc*((+0.1 * UP) + (-0.3 * LEFT))),
             neutron().shift(sc*((-0.1 * UP) + (+0.2 * LEFT))),
@@ -132,7 +132,7 @@ class Top(Scene):
             proton().shift(sc*((+0.1 * UP) + (-0.2 * LEFT))),
             neutron().shift(sc*((-0.2 * UP) + (-0.1 * LEFT))),
             proton().shift(sc*((-0.1 * UP) + (-0.1 * LEFT))),
-        )
+        ).shift(3 * RIGHT)
         self.play(VGroup(*mol3, left0, right0).animate.scale(5.0, about_point= ORIGIN).set_opacity(0), run_time=0.75)
-        self.play(Create(nuc_10b), run_time=0.25)
+        self.play(Create(nuc_10b), Create(nuc_11b), run_time=0.25)
         self.wait(1)
