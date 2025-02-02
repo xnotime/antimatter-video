@@ -7,8 +7,18 @@
       "reversed_playback_rate": 1.0,
       "notes": "",
       "dedent_notes": true,
-      "file": "slides/files/Top/8770f826644317923cf14e2b7d75973e7d434ac6df60064f6b6d0b492e848e40.mp4",
-      "rev_file": "slides/files/Top/8770f826644317923cf14e2b7d75973e7d434ac6df60064f6b6d0b492e848e40_reversed.mp4"
+      "file": "slides/files/Top/86ee785b6eadb7fe83b3adf2748730f43817b71a69c84b2e4cc57ea3964bdd12.mp4",
+      "rev_file": "slides/files/Top/86ee785b6eadb7fe83b3adf2748730f43817b71a69c84b2e4cc57ea3964bdd12_reversed.mp4"
+    },
+    {
+      "loop": false,
+      "auto_next": false,
+      "playback_rate": 1.0,
+      "reversed_playback_rate": 1.0,
+      "notes": "",
+      "dedent_notes": true,
+      "file": "slides/files/Top/4cb24a732671190d124c08b5c2e8d5bbfa8ac2da3b17c80977dfa7d946f3b9bd.mp4",
+      "rev_file": "slides/files/Top/4cb24a732671190d124c08b5c2e8d5bbfa8ac2da3b17c80977dfa7d946f3b9bd_reversed.mp4"
     },
     {
       "loop": false,
@@ -37,8 +47,8 @@
       "reversed_playback_rate": 1.0,
       "notes": "",
       "dedent_notes": true,
-      "file": "slides/files/Top/22a6f67de5a38d2670d34364b70520c60b0fb86959793c5a71c6c215e370fc0d.mp4",
-      "rev_file": "slides/files/Top/22a6f67de5a38d2670d34364b70520c60b0fb86959793c5a71c6c215e370fc0d_reversed.mp4"
+      "file": "slides/files/Top/ae159a6e5aeeb716c6b91359835add163526dac96808d8ddec9914aadc176896.mp4",
+      "rev_file": "slides/files/Top/ae159a6e5aeeb716c6b91359835add163526dac96808d8ddec9914aadc176896_reversed.mp4"
     },
     {
       "loop": false,
@@ -57,8 +67,8 @@
       "reversed_playback_rate": 1.0,
       "notes": "",
       "dedent_notes": true,
-      "file": "slides/files/Top/82bf91b76c0cef92c8b29276fa0b8ff7cf8b92af28084e50d232e503f6570e38.mp4",
-      "rev_file": "slides/files/Top/82bf91b76c0cef92c8b29276fa0b8ff7cf8b92af28084e50d232e503f6570e38_reversed.mp4"
+      "file": "slides/files/Top/485b3c532b75dc1a73ba825bb69c7d6510d2096df8223b024f56da387051fb11.mp4",
+      "rev_file": "slides/files/Top/485b3c532b75dc1a73ba825bb69c7d6510d2096df8223b024f56da387051fb11_reversed.mp4"
     },
     {
       "loop": false,

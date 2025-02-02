@@ -10,6 +10,12 @@ def readmol(name: str) -> GraphMolecule:
 
 class Top(Slide):
     def construct(self):
+        dummy = Dot(radius=0)
+        self.play(FadeIn(dummy))
+        self.play(FadeOut(dummy))
+
+        self.next_slide()
+
         left0 = MathTex('< 140\\,{}^{\\circ} \\text{C}').to_corner(UP + LEFT)
         left1 = MathTex('< 180\\,{}^{\\circ} \\text{C}').to_corner(UP + LEFT)
         left2 = MathTex('< 530\\,{}^{\\circ} \\text{C}').to_corner(UP + LEFT)
@@ -144,7 +150,7 @@ class Top(Slide):
         sub_10b = MathTex('\\approx 19\\%', font_size= 32).shift((3 * LEFT) + (2.5 * DOWN))
         sub_11b = MathTex('\\approx 81\\%', font_size= 32).shift((3 * RIGHT) + (2.5 * DOWN))
         self.play(VGroup(*mol3, left0, right0).animate.scale(5.0, about_point= ORIGIN).set_opacity(0), run_time=0.75)
-        self.play(Create(nuc_10b), Create(nuc_11b), run_time=0.25)
+        self.play(Create(nuc_10b), Create(nuc_11b), run_time=2.0)
         self.next_slide()
         self.play(Write(label_10b), Write(label_11b), Write(sub_10b), Write(sub_11b))
         self.next_slide()
