@@ -107,6 +107,11 @@ class Top(Scene):
             Dot(radius= 0.77, color= ManimColor('#FF0000'))
         neutron = lambda: \
             Dot(radius= 0.77, color= ManimColor('#0000FF'))
+        positron = lambda: \
+            VGroup(
+                Dot(radius= 0.77, color= ManimColor('#FF9933')),
+                MathTex("e^+"),
+            )
         sc = 3.5
         nuc_10b = VGroup(
             proton().shift(sc*((+0.1 * UP) + (-0.2 * LEFT))),
@@ -152,14 +157,15 @@ class Top(Scene):
             subs.animate.shift(6 * RIGHT).set_opacity(0),
         )
         alpha = VGroup(
-            proton().shift((0.35 * UP) + (0.70 * LEFT)),
-            neutron().shift(0.35 * RIGHT),
-            neutron().shift((0.35 * DOWN) + (0.70 * LEFT)),
-            proton().shift((0.70 * DOWN) + (0.35 * RIGHT)),
+            neutron().shift((0.35 * UP) + (0.70 * LEFT)),
+            proton().shift(0.35 * RIGHT),
+            proton().shift((0.35 * DOWN) + (0.70 * LEFT)),
+            neutron().shift((0.70 * DOWN) + (0.35 * RIGHT)),
         ).rotate(12).shift((10 * LEFT) + (2 * UP))
         self.add(alpha)
         self.wait(1)
         label_13n = MathTex('{}^{13} \\text{N}', font_size= 100).shift((3.25 * RIGHT) + (2 * UP))
+        label_13c = MathTex('{}^{13} \\text{C}', font_size= 100).shift((3.25 * RIGHT) + (2 * UP))
         self.play(LaggedStart(
             [
                 alpha.animate.shift((3 * RIGHT) - ((10 * LEFT) + (2 * UP))),
@@ -168,4 +174,21 @@ class Top(Scene):
             ],
             lag_ratio= 0.28,
         ))
+        self.wait(1)
+        rad = ImageMobject('assets/radsymb.png').scale(0.9).shift((3 * LEFT) + (1.5 * UP))
+        self.play(FadeIn(rad))
+        ptron = positron().shift((3 * RIGHT) + (0.5 * DOWN)).set_z_index(nuc_10b[0].z_index - 1)
+        ptron.z_index = 0
+        self.play(FadeIn(ptron))
+        self.wait(1)
+        self.play(LaggedStart(
+            [
+                alpha[-1].animate.set_color(ManimColor('#FF0000')),
+                Transform(label_10b, label_13c),
+                ptron.animate.shift(((8 * LEFT) + (3 * DOWN)) - ((3 * RIGHT) + (0.5 * DOWN))),
+                FadeOut(rad),
+            ],
+            lag_ratio= 0.28,
+        )
+        )
         self.wait(1)
