@@ -142,3 +142,30 @@ class Top(Scene):
         self.wait(1)
         self.play(Write(label_10b), Write(label_11b), Write(sub_10b), Write(sub_11b))
         self.wait(1)
+        except_subs = VGroup(
+            label_10b, nuc_10b,
+            label_11b, nuc_11b,
+        )
+        subs = VGroup(sub_10b, sub_11b)
+        self.play(
+            except_subs.animate.shift(6 * RIGHT),
+            subs.animate.shift(6 * RIGHT).set_opacity(0),
+        )
+        alpha = VGroup(
+            proton().shift((0.35 * UP) + (0.70 * LEFT)),
+            neutron().shift(0.35 * RIGHT),
+            neutron().shift((0.35 * DOWN) + (0.70 * LEFT)),
+            proton().shift((0.70 * DOWN) + (0.35 * RIGHT)),
+        ).rotate(12).shift((10 * LEFT) + (2 * UP))
+        self.add(alpha)
+        self.wait(1)
+        label_13n = MathTex('{}^{13} \\text{N}', font_size= 100).shift((3.25 * RIGHT) + (2 * UP))
+        self.play(LaggedStart(
+            [
+                alpha.animate.shift((3 * RIGHT) - ((10 * LEFT) + (2 * UP))),
+                Transform(label_10b, label_13n),
+                nuc_10b[-1].animate.shift((11 * LEFT) + (5 * UP)),
+            ],
+            lag_ratio= 0.28,
+        ))
+        self.wait(1)
