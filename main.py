@@ -1,5 +1,6 @@
 from manim import *
 from manim_chemistry import *
+from manim_slides import Slide
 
 def readmol(name: str) -> GraphMolecule:
     return GraphMolecule.build_from_mol(
@@ -7,7 +8,7 @@ def readmol(name: str) -> GraphMolecule:
         label= True,
     )
 
-class Top(Scene):
+class Top(Slide):
     def construct(self):
         left0 = MathTex('< 140\\,{}^{\\circ} \\text{C}').to_corner(UP + LEFT)
         left1 = MathTex('< 180\\,{}^{\\circ} \\text{C}').to_corner(UP + LEFT)
@@ -39,7 +40,7 @@ class Top(Scene):
             readmol('BoricOxide').scale(1.2).shift((1.333 * UP) + (1.333 * RIGHT)),
         )
         self.play(FadeIn(mol0), Write(left0), Write(right0))
-        self.wait(1)
+        self.next_slide()
         self.play(Transform(left0, left1), Transform(right0, right1), LaggedStart(
             (
                 AnimationGroup(FadeOut(mol0[i]), FadeIn(mol1[i]))
@@ -47,7 +48,7 @@ class Top(Scene):
             ),
             lag_ratio= 0.15,
         ))
-        self.wait(1)
+        self.next_slide()
         self.play(Transform(left0, left2), Transform(right0, right2), LaggedStart(
             [
                 LaggedStart(
@@ -63,7 +64,7 @@ class Top(Scene):
             ],
             lag_ratio= 0.1,
         ))
-        self.wait(1)
+        self.next_slide()
         self.play(Transform(left0, left3), Transform(right0, right3), LaggedStart(
             [
                 FadeOut(mol2[0]),
@@ -72,7 +73,7 @@ class Top(Scene):
             ],
             lag_ratio= 0.15
         ))
-        self.wait(1)
+        self.next_slide()
         self.play(LaggedStart(
             [
                 LaggedStart(
@@ -102,7 +103,7 @@ class Top(Scene):
             ],
             lag_ratio= 0.08,
         ))
-        self.wait(1)
+        self.next_slide()
         proton = lambda: \
             Dot(radius= 0.77, color= ManimColor('#FF0000'))
         neutron = lambda: \
@@ -144,9 +145,9 @@ class Top(Scene):
         sub_11b = MathTex('\\approx 81\\%', font_size= 32).shift((3 * RIGHT) + (2.5 * DOWN))
         self.play(VGroup(*mol3, left0, right0).animate.scale(5.0, about_point= ORIGIN).set_opacity(0), run_time=0.75)
         self.play(Create(nuc_10b), Create(nuc_11b), run_time=0.25)
-        self.wait(1)
+        self.next_slide()
         self.play(Write(label_10b), Write(label_11b), Write(sub_10b), Write(sub_11b))
-        self.wait(1)
+        self.next_slide()
         except_subs = VGroup(
             label_10b, nuc_10b,
             label_11b, nuc_11b,
@@ -163,7 +164,7 @@ class Top(Scene):
             neutron().shift((0.70 * DOWN) + (0.35 * RIGHT)),
         ).rotate(12).shift((10 * LEFT) + (2 * UP))
         self.add(alpha)
-        self.wait(1)
+        self.next_slide()
         label_13n = MathTex('{}^{13} \\text{N}', font_size= 100).shift((3.25 * RIGHT) + (2 * UP))
         label_13c = MathTex('{}^{13} \\text{C}', font_size= 100).shift((3.25 * RIGHT) + (2 * UP))
         self.play(LaggedStart(
@@ -174,13 +175,13 @@ class Top(Scene):
             ],
             lag_ratio= 0.28,
         ), run_time= 2.0)
-        self.wait(1)
+        self.next_slide()
         rad = ImageMobject('assets/radsymb.png').scale(0.9).shift((3 * LEFT) + (1.5 * UP))
         self.play(FadeIn(rad))
         ptron = positron().shift((3 * RIGHT) + (0.5 * DOWN)).set_z_index(nuc_10b[0].z_index - 1)
         ptron.z_index = 0
         self.play(FadeIn(ptron))
-        self.wait(1)
+        self.next_slide()
         self.play(LaggedStart(
             [
                 alpha[-1].animate.set_color(ManimColor('#FF0000')),
@@ -190,10 +191,10 @@ class Top(Scene):
             ],
             lag_ratio= 0.28,
         ), run_time= 2.0)
-        self.wait(1)
+        self.next_slide()
         self.play(
             except_subs.animate.shift(-((10 * LEFT) + (3 * DOWN))),
             alpha.animate.shift(-((10 * LEFT) + (3 * DOWN))),
             ptron.animate.shift(-((10 * LEFT) + (3 * DOWN))),
         )
-        self.wait(1)
+        self.next_slide()
